@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Part C, step 4: button selector.
+    The buttons are green (#1B5E20) when they are not pressed and light green
+    (#66BB6A) while they are pressed.
+-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Pressed state: light green -->
+    <item android:color="@color/light_green" android:state_pressed="true" />
+
+    <!-- Focused state (keyboard/trackball): light green -->
+    <item android:color="@color/light_green" android:state_focused="true" />
+
+    <!-- Default (not pressed): green -->
+    <item android:color="@color/green" />
+
+</selector>

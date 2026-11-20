@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Part C, step 2: the launcher icon.
+    The CampusLife logo is drawn on the standard adaptive-icon background so
+    that the launcher shows the CampusLife branding on every Android version.
+-->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/green" />
+    <foreground android:drawable="@mipmap/ic_launcher_foreground" />
+</adaptive-icon>

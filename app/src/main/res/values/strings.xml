@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Part A: the default application name. Part C renames it to CampusLife. -->
-    <string name="app_name">AssignmentOne</string>
+    <!-- Part C, step 1: the application is named "CampusLife". -->
+    <string name="app_name">CampusLife</string>
 
     <!-- Part B: the banner title shown over the main banner image. -->
     <string name="banner_title">Welcome to CampusLife - Your Pocket Guide to University of Waikato</string>
