@@ -1,5 +1,6 @@
 package com.example.assignmentone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -16,6 +17,9 @@ import androidx.appcompat.app.AppCompatActivity;
  *     landscape single row of image buttons).</li>
  *     <li>Part E - every image button raises a Toast so the click can be
  *     verified.</li>
+ *     <li>Part G - every image button also starts {@link DetailActivity} with
+ *     an explicit Intent that carries a unique identifier for the topic that
+ *     was clicked.</li>
  * </ul>
  */
 public class MainActivity extends AppCompatActivity {
@@ -23,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * The four topics are identified by their position in the arrays stored in
      * res/values/array.xml.  These constants are the "unique identifier" that
-     * Part G passes to {@link DetailActivity} through the Intent extra.
+     * is passed to {@link DetailActivity} through the Intent extra.
      */
     public static final int TOPIC_FACILITIES = 0;
     public static final int TOPIC_EVENTS = 1;
@@ -35,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Part E: wire up the four image buttons.  The button ids are
-        // identical in the portrait and the landscape layout, so a single set
-        // of listeners works for both orientations.
+        // Part E and Part G: wire up the four image buttons.  The button ids
+        // are identical in the portrait and the landscape layout, so a single
+        // set of listeners works for both orientations.
         ImageButton facilitiesButton = findViewById(R.id.btnFacilities);
         ImageButton eventsButton = findViewById(R.id.btnEvents);
         ImageButton clubsButton = findViewById(R.id.btnClubs);
@@ -74,17 +78,27 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Part E: shows a Toast confirming which image button was clicked.
+     * Part G: builds an explicit Intent that starts {@link DetailActivity} and
+     * passes the identifier of the clicked topic.
      *
      * @param topicId the unique identifier of the clicked topic
      */
     private void showTopic(int topicId) {
+        // Part E - the Toast confirms the onClick handler is working.
         Toast.makeText(this, topicLabel(topicId) + " clicked", Toast.LENGTH_SHORT).show();
+
+        // Part G - an explicit Intent that starts DetailActivity.  The topic
+        // identifier is passed through the Intent so that DetailActivity knows
+        // which content to display.
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(DetailActivity.EXTRA_TOPIC_ID, topicId);
+        startActivity(intent);
     }
 
     /**
      * Returns the human readable name of a topic.
      * The name is read from the titles array in res/values/array.xml so that
-     * the Toast always uses the same wording as the rest of the application.
+     * the Toast and the Detail Activity always use the same wording.
      *
      * @param topicId the unique identifier of the topic
      * @return the title of the topic
