@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AssignmentOne">
 
-        <!-- Part A: the launcher activity of the new application. -->
+        <!-- Part A / Part F: the two activities of the CampusLife app. -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -18,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Part F: the Detail Activity. -->
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

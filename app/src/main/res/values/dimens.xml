@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Part B: all shared dimensions live here so that no size is ever
+    Part B / Part F: all shared dimensions live here so that no size is ever
     hard-coded inside a layout file.  Values are expressed in dp so that they
     scale correctly across screen sizes and orientations.
 -->
@@ -12,4 +12,15 @@
 
     <!-- Size of the four image buttons in the lower half of MainActivity. -->
     <dimen name="button_icon_size">72dp</dimen>
+
+    <!-- Size of the CampusLife logo used in the Detail Activity header. -->
+    <dimen name="logo_size">48dp</dimen>
+
+    <!-- Size of the topic icon shown next to the topic name. -->
+    <dimen name="topic_icon_size">40dp</dimen>
+
+    <!-- Text sizes used by the Detail Activity. -->
+    <dimen name="text_size_topic_name">24sp</dimen>
+    <dimen name="text_size_detail_title">20sp</dimen>
+    <dimen name="text_size_detail_content">16sp</dimen>
 </resources>

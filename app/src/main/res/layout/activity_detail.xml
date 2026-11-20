@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Part F: DetailActivity layout.
+
+    Structure
+    =========
+    LinearLayout (root, vertical)
+      |-  LinearLayout "header"
+      |     |-  ImageView  imgCampusLifeLogo   (the CampusLife logo)
+      |     +-  LinearLayout (horizontal)
+      |           |-  ImageView  imgTopicIcon     (icon of the chosen topic)
+      |           +-  TextView   txtTopicName     (name of the chosen topic)
+      |
+      +-  ImageView  imgTopicImage   (large image for the chosen topic)
+      |
+      +-  ScrollView
+            +-  LinearLayout (vertical)
+                  |-  TextView txtDetailTitle    (title from arrays.xml)
+                  +-  TextView txtDetailContent  (body text from arrays.xml)
+
+    Every size is expressed with dp / sp / weight, so the layout is fully
+    responsive: it re-flows correctly on any screen size and no size is
+    hard-coded.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- ================= Header: logo + topic icon + topic name ================= -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_small">
+
+        <!-- The CampusLife logo. -->
+        <ImageView
+            android:id="@+id/imgCampusLifeLogo"
+            android:layout_width="@dimen/logo_size"
+            android:layout_height="@dimen/logo_size"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/img_campus_life_logo" />
+
+        <!-- Topic icon and topic name. -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/spacing_medium"
+            android:paddingEnd="@dimen/spacing_medium">
+
+            <ImageView
+                android:id="@+id/imgTopicIcon"
+                android:layout_width="@dimen/topic_icon_size"
+                android:layout_height="@dimen/topic_icon_size"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/txtTopicName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_topic_name"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ================= Large topic image ================= -->
+    <ImageView
+        android:id="@+id/imgTopicImage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:contentDescription="@null"
+        android:padding="@dimen/spacing_small"
+        android:scaleType="fitCenter" />
+
+    <!-- ================= Scrolling text area ================= -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_medium">
+
+            <TextView
+                android:id="@+id/txtDetailTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/spacing_small"
+                android:textColor="@color/green"
+                android:textSize="@dimen/text_size_detail_title"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtDetailContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.15"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_detail_content" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

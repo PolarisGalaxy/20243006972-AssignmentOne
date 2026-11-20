@@ -11,4 +11,9 @@
     <string name="cd_events">Events</string>
     <string name="cd_clubs">Clubs</string>
     <string name="cd_support">Support</string>
+
+    <!-- Part F: placeholder text for the Detail Activity before it is populated. -->
+    <string name="detail_topic_name">Facilities</string>
+    <string name="detail_title">This is a title</string>
+    <string name="detail_content">This is content</string>
 </resources>
