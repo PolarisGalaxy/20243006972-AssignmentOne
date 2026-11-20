@@ -2,4 +2,13 @@
 <resources>
     <!-- Part A: the default application name. Part C renames it to CampusLife. -->
     <string name="app_name">AssignmentOne</string>
+
+    <!-- Part B: the banner title shown over the main banner image. -->
+    <string name="banner_title">Welcome to CampusLife - Your Pocket Guide to University of Waikato</string>
+
+    <!-- Content descriptions for the image buttons (accessibility). -->
+    <string name="cd_facilities">Facilities</string>
+    <string name="cd_events">Events</string>
+    <string name="cd_clubs">Clubs</string>
+    <string name="cd_support">Support</string>
 </resources>

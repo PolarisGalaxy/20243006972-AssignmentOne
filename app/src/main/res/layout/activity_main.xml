@@ -1,20 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Part B: MainActivity layout for PORTRAIT orientation.
+
+    Structure
+    =========
+    ConstraintLayout (root)
+      |-  FrameLayout      "bannerContainer"  (50% of the screen height)
+      |     |-  ImageView  img_main_banner
+      |     +-  TextView    bannerTitle       (40sp, centred over the image)
+      |
+      +-  ConstraintLayout "buttonPanel"      (fills the remaining 50%)
+            |-  LinearLayout rowTop    -> Facilities | Events
+            +-  LinearLayout rowBottom -> Clubs    | Support
+
+    Every size is expressed with dp / sp / weight / percentages, so the layout
+    is fully responsive: it re-flows correctly on any screen size and no size
+    is hard-coded.
+-->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/white">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <!-- ================= Banner (top half) ================= -->
+    <FrameLayout
+        android:id="@+id/bannerContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- The banner artwork supplied with the assignment. -->
+        <ImageView
+            android:id="@+id/imgBanner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_main_banner" />
+
+        <!-- The banner title. 40sp is the one size the assignment allows. -->
+        <TextView
+            android:id="@+id/txtBannerTitle"
+            style="@style/BannerTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/spacing_medium"
+            android:text="@string/banner_title" />
+    </FrameLayout>
+
+    <!-- ================= Green button panel (bottom half) ================= -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttonPanel"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/bannerContainer">
+
+        <!-- Row 1 -->
+        <LinearLayout
+            android:id="@+id/rowTop"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/spacing_medium"
+            android:paddingEnd="@dimen/spacing_medium"
+            app:layout_constraintBottom_toTopOf="@id/rowBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btnFacilities"
+                    android:layout_width="@dimen/button_icon_size"
+                    android:layout_height="@dimen/button_icon_size"
+                    android:background="@null"
+                    android:contentDescription="@string/cd_facilities"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_btn_facilities" />
+
+                <TextView
+                    style="@style/ButtonLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cd_facilities" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btnEvents"
+                    android:layout_width="@dimen/button_icon_size"
+                    android:layout_height="@dimen/button_icon_size"
+                    android:background="@null"
+                    android:contentDescription="@string/cd_events"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_btn_events" />
+
+                <TextView
+                    style="@style/ButtonLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cd_events" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Row 2 -->
+        <LinearLayout
+            android:id="@+id/rowBottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/spacing_medium"
+            android:paddingEnd="@dimen/spacing_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rowTop"
+            app:layout_constraintVertical_weight="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btnClubs"
+                    android:layout_width="@dimen/button_icon_size"
+                    android:layout_height="@dimen/button_icon_size"
+                    android:background="@null"
+                    android:contentDescription="@string/cd_clubs"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_btn_clubs" />
+
+                <TextView
+                    style="@style/ButtonLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cd_clubs" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btnSupport"
+                    android:layout_width="@dimen/button_icon_size"
+                    android:layout_height="@dimen/button_icon_size"
+                    android:background="@null"
+                    android:contentDescription="@string/cd_support"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_btn_support" />
+
+                <TextView
+                    style="@style/ButtonLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cd_support" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Part B: all shared dimensions live here so that no size is ever
+    hard-coded inside a layout file.  Values are expressed in dp so that they
+    scale correctly across screen sizes and orientations.
+-->
+<resources>
+    <!-- Spacing used around the banner image. -->
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+
+    <!-- Size of the four image buttons in the lower half of MainActivity. -->
+    <dimen name="button_icon_size">72dp</dimen>
+</resources>
