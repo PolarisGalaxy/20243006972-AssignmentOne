@@ -21,6 +21,10 @@ import androidx.appcompat.app.AppCompatActivity;
  *     an explicit Intent that carries a unique identifier for the topic that
  *     was clicked.</li>
  * </ul>
+ *
+ * <p>Part I: the class is kept small and every method has a single clear
+ * purpose, with Javadoc comments explaining which part of the assignment it
+ * implements.</p>
  */
 public class MainActivity extends AppCompatActivity {
 
@@ -39,9 +43,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Part E and Part G: wire up the four image buttons.  The button ids
-        // are identical in the portrait and the landscape layout, so a single
-        // set of listeners works for both orientations.
+        registerClickHandlers();
+    }
+
+    /**
+     * Part E and Part G: wires up the four image buttons.
+     *
+     * <p>The button ids are identical in the portrait and the landscape
+     * layout, so a single set of listeners works for both orientations.</p>
+     */
+    private void registerClickHandlers() {
         ImageButton facilitiesButton = findViewById(R.id.btnFacilities);
         ImageButton eventsButton = findViewById(R.id.btnEvents);
         ImageButton clubsButton = findViewById(R.id.btnClubs);

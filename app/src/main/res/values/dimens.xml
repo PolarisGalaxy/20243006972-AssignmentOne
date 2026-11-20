@@ -23,4 +23,8 @@
     <dimen name="text_size_topic_name">24sp</dimen>
     <dimen name="text_size_detail_title">20sp</dimen>
     <dimen name="text_size_detail_content">16sp</dimen>
+
+    <!-- Minimum height of the green button area so that it fills the lower
+         half of the screen even on short screens. -->
+    <dimen name="button_panel_min_height">280dp</dimen>
 </resources>
